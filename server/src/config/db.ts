@@ -6,6 +6,8 @@ export async function connectDB(): Promise<void> {
     console.warn("MONGO_URI not set — skipping DB connect");
     return;
   }
-  await mongoose.connect(uri);
+  // Fail server selection in 10s instead of the 30s default so connection
+  // problems surface fast in deploy logs.
+  await mongoose.connect(uri, { serverSelectionTimeoutMS: 10_000 });
   console.log("MongoDB connected");
 }

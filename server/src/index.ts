@@ -4,8 +4,22 @@ import { connectDB } from "./config/db.js";
 
 const PORT = process.env.PORT || 5000;
 
-async function start(): Promise<void> {
-  await connectDB();
+// Retry the DB connection in the background instead of crashing the process.
+// The HTTP server binds first so the platform (Render) detects the open port
+// and keeps the service up; routes that hit Mongo will error until it connects.
+async function connectWithRetry(attempt = 1): Promise<void> {
+  try {
+    await connectDB();
+  } catch (err) {
+    const wait = Math.min(30_000, 2_000 * attempt);
+    console.error(
+      `MongoDB connect failed (attempt ${attempt}): ${(err as Error).message}. Retrying in ${wait / 1000}s.`
+    );
+    setTimeout(() => void connectWithRetry(attempt + 1), wait);
+  }
+}
+
+function start(): void {
   const server = app.listen(PORT, () => console.log(`Server on http://localhost:${PORT}`));
 
   // Clear, actionable message instead of an unhandled 'error' crash dump.
@@ -16,6 +30,8 @@ async function start(): Promise<void> {
     }
     throw err;
   });
+
+  void connectWithRetry();
 
   // Release the port on shutdown so tsx-watch restarts don't orphan a listener.
   const shutdown = () => server.close(() => process.exit(0));
