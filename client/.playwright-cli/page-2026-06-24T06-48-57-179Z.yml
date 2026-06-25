@@ -1,0 +1,39 @@
+- generic [ref=e2]:
+  - generic [ref=e18]:
+    - banner [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Assessment Builder
+        - navigation [ref=e22]:
+          - link "Builder" [ref=e23] [cursor=pointer]:
+            - /url: /builder
+          - link "Assessments" [ref=e24] [cursor=pointer]:
+            - /url: /assessments
+          - link "Reports" [ref=e25] [cursor=pointer]:
+            - /url: /reports
+        - generic [ref=e26]:
+          - generic [ref=e27]: webuser_12947
+          - button "Logout" [ref=e28]
+    - main [ref=e29]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - combobox [active] [ref=e39]:
+            - generic [ref=e40]: Browser Test Assessment
+            - img: ▼
+          - textbox [ref=e41]: 6a3b7cbf999aae30a6fdd8eb
+          - generic [ref=e50]: 1 response(s)
+        - table [ref=e52]:
+          - rowgroup [ref=e53]:
+            - row "Question Type Answers / Summary" [ref=e54]:
+              - columnheader "Question" [ref=e55]
+              - columnheader "Type" [ref=e56]
+              - columnheader "Answers / Summary" [ref=e57]
+          - rowgroup [ref=e58]:
+            - row "Rate your sleep quality rating avg 4.00 (n=1)" [ref=e59]:
+              - cell "Rate your sleep quality" [ref=e60]
+              - cell "rating" [ref=e61]
+              - cell "avg 4.00 (n=1)" [ref=e62]
+            - row "Any notes on sleep? text slept well" [ref=e63]:
+              - cell "Any notes on sleep?" [ref=e64]
+              - cell "text" [ref=e65]
+              - cell "slept well" [ref=e66]
+  - region "Notifications alt+T"

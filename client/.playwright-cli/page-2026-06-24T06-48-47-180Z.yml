@@ -1,0 +1,25 @@
+- generic [ref=e2]:
+  - generic [ref=e18]:
+    - banner [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Assessment Builder
+        - navigation [ref=e22]:
+          - link "Builder" [ref=e23] [cursor=pointer]:
+            - /url: /builder
+          - link "Assessments" [ref=e24] [cursor=pointer]:
+            - /url: /assessments
+          - link "Reports" [ref=e25] [cursor=pointer]:
+            - /url: /reports
+        - generic [ref=e26]:
+          - generic [ref=e27]: webuser_12947
+          - button "Logout" [ref=e28]
+    - main [ref=e29]:
+      - generic [ref=e38]:
+        - combobox [expanded] [ref=e39]:
+          - generic [ref=e40]: Select an assessment
+          - img: ▼
+        - listbox [ref=e45]:
+          - option "Browser Test Assessment" [active] [ref=e46]:
+            - generic [ref=e47]: Browser Test Assessment
+        - textbox [ref=e41]
+  - region "Notifications alt+T"
