@@ -4,6 +4,9 @@
   "description": "Express + Mongoose API for assessment builder (TypeScript)",
   "type": "module",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
